@@ -3,33 +3,56 @@ import React from 'react';
 import whatsappIcon from '../../assets/images/icons/whatsapp.svg';
 
 import './styles.css';
+import api from '../../services/api';
 
-function TeacherItem() {
+  export interface Teacher {
+      id: number;
+      avatar: string;
+      bio: string;
+      cost: number;
+      name: string;
+      subject: string;
+      whatsapp: string;
+  };
+
+  interface TeacherItemProps {
+    teacher: Teacher;
+  }
+
+const TeacherItem: React.FC<TeacherItemProps> = ({ teacher }) => {
+  function createNewConnection() {
+    api.post('connections', {
+      user_id: teacher.id
+    });
+  }
+
   return (
   <article className="teacher-item">
     <header>
-      <img src="https://avatars0.githubusercontent.com/u/49077396?s=460&u=ba40a7af59afb17b79b314fc817a65fa28c325e0&v=4" alt="Rodrigo Tadeu"/>
+      <img src={teacher.avatar} alt={teacher.name}/>
       <div>
-        <strong>Rodrigo Tadeu</strong>
-        <span>Matemática</span>
+        <strong>{teacher.name}</strong>
+        <span>{teacher.subject}</span>
       </div>
     </header>
 
     <p>
-      Entusias das melhores formulas de matemática avançada usando barbantes.
-      <br /> <br />
-      Desenhista profissional de círculos e linhas retas usando pregos e barbantes.
+      {teacher.bio}
     </p>
 
     <footer>
       <p>
         Preço/hora
-        <strong>R$ 100,00</strong>
+        <strong>R$ {teacher.cost}</strong>
       </p>
-      <button>
+      <a 
+        target="_blanck" 
+        href={`https://wa.me/${teacher.whatsapp}`}
+        onClick={createNewConnection}
+      >
         <img src={whatsappIcon} alt="Whatsapp"/>
         Entrar em contato
-      </button>
+      </a>
     </footer>
   </article>
   );
