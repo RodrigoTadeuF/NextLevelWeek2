@@ -8,13 +8,13 @@ import Favorites from '../pages/Favorites';
 const { Navigator, Screen } = createBottomTabNavigator();
 
 function StudyTabs() {
-  return(
+  return (
     <Navigator
       tabBarOptions={{
         style: {
           elevation: 0,
           shadowOpacity: 0,
-          height: 64
+          height: 64,
         },
         tabStyle: {
           flexDirection: 'row',
@@ -44,11 +44,12 @@ function StudyTabs() {
           tabBarLabel: 'Proffys',
           tabBarIcon: ({ color, size, focused }) => {
             return (
-              <Ionicons name="ios-easel" size={size} color={focused ? '#8257e5': color} />
+              <Ionicons name="ios-easel" size={size} color={focused ? '#8257e5' : color} />
             );
           }
-        }} 
+        }}
       />
+
       <Screen 
         name="Favorites" 
         component={Favorites}
@@ -56,10 +57,10 @@ function StudyTabs() {
           tabBarLabel: 'Favoritos',
           tabBarIcon: ({ color, size, focused }) => {
             return (
-              <Ionicons name="ios-heart" size={size} color={focused ? '#8257e5': color} />
+              <Ionicons name="ios-heart" size={size} color={focused ? '#8257e5' : color} />
             );
           }
-        }} 
+        }}
       />
     </Navigator>
   );

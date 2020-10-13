@@ -5,20 +5,20 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#8257E5',
     justifyContent: 'center',
-    padding: 40,
+    padding: 40
   },
 
   content: {
     flex: 1,
-    justifyContent: 'center',
+    justifyContent: 'center'
   },
 
   title: {
     fontFamily: 'Archivo_700Bold',
-    color: '#fff',
+    color: '#FFF',
     fontSize: 32,
     lineHeight: 37,
-    maxWidth: 180
+    maxWidth: 180,
   },
 
   description: {
@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
   },
 
   okButtonText: {
-    color: '#fff',
+    color: '#FFF',
     fontSize: 16,
     fontFamily: 'Archivo_700Bold'
   },
